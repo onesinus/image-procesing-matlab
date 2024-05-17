@@ -1,0 +1,12 @@
+Im=imread('14230003.jpg');
+%Pre-Processing (Filter) Median Penapis 7 x 7
+Im1=D7_7.m(Im);
+
+figure(1);imshow(Im);figure(2);imshow(Im1);
+
+% Edge Detection (Morphology) Dilation – Erosion strel (Diamond , 7)
+SE = strel("diamond",7);
+Im2 = imdilate(Im1,SE);
+Im3 = imerode(Im1,SE);
+Im4= Im2 - Im3;
+imwrite(Im4, '14230003ed.jpg');
